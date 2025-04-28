@@ -101,7 +101,7 @@ def test_get_orders_with_missing_customers():
     assert isinstance(result, list)
     if result:
         customer_id, total_amount = result[0]
-        assert isinstance(total_amount, (int, float))
+        assert isinstance(total_amount, (int, float, Decimal))
 
 def send_post_request(url: str, data: dict, headers: dict = None):
     try:
