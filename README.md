@@ -24,13 +24,15 @@ sırasıyla kendi local veritabanınızda çalıştırınız.
 * connect_db fonksiyonu içerisinde veritabanına bağlanma bilgileri var. Projenizi kendi localinizde test ederken burada bilgileri kendi local veritabanı bilgilerinizle değiştirerek test ediniz. Ancak kodunuzu <b>pushlarken bu veritabanı bilgilerini ilk bulduğunuz şekilde bırakınız.</b> Çünkü kodlarınız Cloud bir ortamda bu bilgilerle bir veritabanına bağlancaklardır.
 
 # Questions
-1. customers tablosundan tüm müşterilerin adlarını ve ülkelerini getir.
-2. orders tablosunda en yüksek tutarlı 5 siparişi listele (tüm sütunlarla birlikte).
-3. products tablosundan fiyatı en düşük 3 ürünü, sadece adları ve fiyatları ile getir.
-4. customers tablosundaki en eski kayıtlı 10 müşteriyi signup_date'e göre sırala.
-5. products tablosunda en fazla stoğa sahip ürünü sadece adı ve stock_quantity ile getir.
-6. orders tablosunda son siparişi (tarihi en güncel olanı) listele.
-7. products tablosunda sadece product_name sütununu alfabetik sırada göster.
-8. customers tablosundan email sütunu olan ilk 5 müşteriyi customer_id'ye göre sırala.
-9. orders tablosunda tutarı en düşük 3 siparişi ve bunların order_id'lerini getir.
-10. customers tablosundan sadece Türkiye'deki (country = 'Turkey') müşterileri alfabetik sırala.
+1. NULL emailleri 'unknown@example.com' ile değiştir
+2. İçerisinde '@' işareti geçmeyen emailleri bul.
+3. customer tablosundan önce kullanıcının ismini daha sonra isminin ilk 3 harfini short_name ismiyle getir.
+4. customer tablosundan önce kullanıcının ismini daha sonra emailinin @ şlaretinin sağ tarafında kalan kısmını(domain) bilgisini getiriniz.
+5. Tüm müşterilerin isim ile emaili birleştirerek full_info ismiyle dönen sorguyu yazınız.
+6. orders tablosundan tüm tutarları INTEGER'a çevirip order_id ile birlikte total_amount_int ismiyle dönen sorguyu yazınız.
+7. müşterilerin ismini ve emaillerindeki @ işaretinin kaçıncı indkste olduğunun bilgisini at_position ismiyle dönen sorguyu yazınız.
+8. ürünler tablosundan ürünün ismini ve kategorisini product_category ismiyle dönecek sorguyu yazınız. Eğer kategori NULL ise NULL terimini 'Unknown' ile değiştiriniz.
+9. orders tablosu üzerinden customer_id, total_amount ve toplam harcamaya göre sıralamasını(RANK) rank_by_spend ismiyle dönen sorguyu yazınız.
+10. Siparişlere göre çalışan toplamı (Running Total - SUM OVER) değerini bulan sorguyu yazınız.
+11. Elektronik ve beyaz eşya ürünlerini tek listede getiren sorguyu yazınız
+12. Tüm siparişler ve eksik siparişleri birleştiren sorguyu yazınız.
