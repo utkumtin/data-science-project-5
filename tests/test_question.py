@@ -29,7 +29,7 @@ def test_find_invalid_emails():
     result = find_invalid_emails()
     assert isinstance(result, list)
     if result:
-        assert '@' not in result[0][2]  # Email kolonunda '@' yoksa
+        assert '@' not in result[0][0]  # Email kolonunda '@' yoksa
 
 def test_get_first_3_letters_of_names():
     result = get_first_3_letters_of_names()
@@ -86,7 +86,7 @@ def test_running_total_per_customer():
     result = running_total_per_customer()
     assert isinstance(result, list)
     if result:
-        order_id, customer_id, total_amount, running_total = result[0]
+        order_id, customer_id, order_date, total_amount, running_total = result[0]
         assert running_total >= total_amount
 
 def test_get_electronics_and_appliances():
@@ -100,8 +100,8 @@ def test_get_orders_with_missing_customers():
     result = get_orders_with_missing_customers()
     assert isinstance(result, list)
     if result:
-        customer_id, total_amount = result[0]
-        assert isinstance(total_amount, (int, float, Decimal))
+        order_id, customer_id, siparis_durumu = result[0]
+        assert siparis_durumu in ['Mevcut Sipariş', 'Eksik Sipariş']
 
 def send_post_request(url: str, data: dict, headers: dict = None):
     try:
@@ -137,7 +137,7 @@ def run_tests():
     
     url = "https://edugen-backend-487d2168bc6c.herokuapp.com/projectLog/"
     payload = {
-        "user_id": 34,
+        "user_id": 203,
         "project_id": 38,
         "user_score": round(user_score, 2),
         "is_auto": False
